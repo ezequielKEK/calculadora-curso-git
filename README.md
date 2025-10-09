@@ -69,10 +69,11 @@ calculadora-curso-git/
 | `sumar(a, b)` | ✅ Implementada | Suma dos números |
 | `restar(a, b)` | ✅ Implementada | Resta dos números |
 | `multiplicar(a, b)` | ✅ Implementada | Multiplica dos números |
-| `dividir(a, b)` | ⏳ Pendiente | Divide dos números |
+| `dividir(a, b)` | ✅ Implementada | Divide dos números |
 | `potencia(base, exp)` | ⏳ Pendiente | Eleva un número a una potencia |
 | `raizCuadrada(num)` | ⏳ Pendiente | Calcula la raíz cuadrada |
 
 ## Alumnos
 Ruben Ezequiel Rebolledo Schaffeld
 Elias Nahuel Alegre
+Camila Burgos
