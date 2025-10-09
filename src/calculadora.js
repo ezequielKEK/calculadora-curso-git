@@ -12,7 +12,7 @@ class Calculadora {
   }
 
   dividir(a, b) {
-    // TODO: Implementar división
+    return a / b;
   }
 
   potencia(base, exponente) {
