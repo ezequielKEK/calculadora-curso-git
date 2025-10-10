@@ -77,3 +77,4 @@ calculadora-curso-git/
 Ruben Ezequiel Rebolledo Schaffeld
 Elias Nahuel Alegre
 Camila Burgos
+Teresa Criniti
