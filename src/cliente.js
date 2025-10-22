@@ -19,6 +19,8 @@ function mostrarMenu() {
   console.log('5. Potencia');
   console.log('6. Raíz Cuadrada');
   console.log('7. Resto');
+  console.log('11. Logaritmo Natural');
+  console.log('12. Logaritmo Base 10')
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -119,13 +121,28 @@ async function ejecutarOpcion(opcion) {
         'raíz cuadrada'
       );
       break;
+
     case '7': 
       await operacionDosNumeros(
         (a, b) => calc.calcularResto(a, b),
         'resto'
       );
       break;
+
+    case '11': 
+      await operacionUnNumero(
+        (num) => calc.logaritmoNatural(num),
+        'logaritmo natural'
+      );
+      break;  
     
+    case '12':
+      await operacionUnNumero(
+        (num)=> calc.logaritmoBase10(num),
+        'logaritmo base 10'
+      );
+      break;
+
     case '0':
       console.log('\n¡Hasta luego! 👋');
       rl.close();
