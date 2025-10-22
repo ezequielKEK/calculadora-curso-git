@@ -22,6 +22,13 @@ class Calculadora {
   raizCuadrada(numero) {
     return Math.sqrt(numero);
   }
+
+  calcularResto (a, b){
+    if (b === 0) {
+      throw new Error("Error: El divisor (b) no puede ser 0");
+    }
+    return a % b;
+  }
 }
 
 // Exportar para usar en tests
@@ -44,3 +51,4 @@ console.log('- calc.multiplicar(a, b)');
 console.log('- calc.dividir(a, b)');
 console.log('- calc.potencia(base, exponente)');
 console.log('- calc.raizCuadrada(numero)');
+console.log('- calc.Resto(a, b)');
