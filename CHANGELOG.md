@@ -5,6 +5,13 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [0.5.0] - 2025-10-22
+
+### Añadido
+- Función `encontrarMaximo(numeros)` para obtener el valor más alto de un array.
+- Opción para "Encontrar Máximo" en el menú interactivo, con ingreso de múltiples números.
+- Tests unitarios para la función `encontrarMaximo`.
+
 ## [0.4.0] - 2025-10-22
 
 ### Añadido

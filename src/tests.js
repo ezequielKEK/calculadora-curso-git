@@ -202,6 +202,21 @@ test('calcular porcentaje sobre cero debe lanzar un error', () => {
   expect(() => calc.calcularPorcentaje(50, 0)).toThrow("Error: No se puede calcular el porcentaje sobre cero (b no puede ser 0)");
 });
 
+// Tests de Máximo de un Array
+console.log('\nTests de máximo de un array:');
+test('encontrar el máximo en un array de números positivos', () => {
+  expect(calc.encontrarMaximo([1, 5, 2, 8, 3])).toBe(8);
+});
+test('encontrar el máximo en un array con números negativos', () => {
+  expect(calc.encontrarMaximo([-10, -5, -22, -1])).toBe(-1);
+});
+test('encontrar el máximo en un array con números mixtos', () => {
+  expect(calc.encontrarMaximo([-10, 5, 0, 12, -1])).toBe(12);
+});
+test('encontrar el máximo en un array vacío debe lanzar un error', () => {
+  expect(() => calc.encontrarMaximo([])).toThrow("Error: El array de números no puede estar vacío");
+});
+
 // Resumen
 console.log('\n=== Resumen ===');
 console.log(`Tests pasados: ${testsPasados}`);

@@ -74,6 +74,7 @@ calculadora-curso-git/
 | `raizCuadrada(num)` | ✅ Implementada | Calcula la raíz cuadrada |
 | `calcularResto(a, b)` | ✅ Implementada | Calcula el resto de la división |
 | `calcularPorcentaje(a, b)` | ✅ Implementada | Calcula qué porcentaje es `a` de `b` |
+| `encontrarMaximo(array)` | ✅ Implementada | Encuentra el número más grande en una lista |
 
 ## Alumnos
 Ruben Ezequiel Rebolledo Schaffeld

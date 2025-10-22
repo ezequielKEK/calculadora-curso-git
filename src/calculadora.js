@@ -36,6 +36,13 @@ class Calculadora {
     }
     return (a / b) * 100;
   }
+
+  encontrarMaximo(numeros) {
+    if (!numeros || numeros.length === 0) {
+      throw new Error("Error: El array de números no puede estar vacío");
+    }
+    return Math.max(...numeros);
+  }
 }
 
 // Exportar para usar en tests
@@ -60,3 +67,4 @@ console.log('- calc.potencia(base, exponente)');
 console.log('- calc.raizCuadrada(numero)');
 console.log('- calc.Resto(a, b)');
 console.log('- calc.calcularPorcentaje(a, b)');
+console.log('- calc.encontrarMaximo(array)');

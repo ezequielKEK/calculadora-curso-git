@@ -20,6 +20,7 @@ function mostrarMenu() {
   console.log('6. Raíz Cuadrada');
   console.log('7. Resto');
   console.log('8. Porcentaje (a de b)');
+  console.log('9. Encontrar Máximo de una lista');
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -28,6 +29,10 @@ function pedirNumero(mensaje) {
   return new Promise((resolve) => {
     rl.question(mensaje, (respuesta) => {
       const numero = parseFloat(respuesta);
+      // Si la respuesta está vacía pero no es para pedir un número, devolvemos null
+      if (respuesta.trim() === '' && !isNaN(numero)) {
+        resolve(null);
+      }
       resolve(numero);
     });
   });
@@ -62,6 +67,33 @@ async function operacionUnNumero(operacion, nombreOperacion) {
   } else {
     console.log(`\n✓ Resultado: √${num} = ${resultado}`);
   }
+}
+
+async function operacionConArray(operacion, nombreOperacion) {
+  const numeros = [];
+  let continuar = true;
+
+  console.log('Ingrese los números uno por uno. Presione ENTER (sin escribir nada) para terminar.');
+
+  while (continuar) {
+    const input = await new Promise(resolve => {
+      rl.question(`Número ${numeros.length + 1}: `, resolve);
+    });
+
+    if (input.trim() === '') {
+      continuar = false;
+    } else {
+      const numero = parseFloat(input);
+      if (!isNaN(numero)) {
+        numeros.push(numero);
+      } else {
+        console.log('Entrada inválida. Por favor, ingrese un número.');
+      }
+    }
+  }
+
+  const resultado = operacion(numeros);
+  console.log(`\n✓ El número máximo de la lista [${numeros.join(', ')}] es: ${resultado}`);
 }
 
 function getSimboloOperacion(nombre) {
@@ -143,6 +175,12 @@ async function ejecutarOpcion(opcion) {
       await operacionDosNumeros(
         (a, b) => calc.calcularPorcentaje(a, b),
         'porcentaje'
+      );
+      break;
+    case '9':
+      await operacionConArray(
+        (numeros) => calc.encontrarMaximo(numeros),
+        'máximo de un array'
       );
       break;
     
