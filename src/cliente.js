@@ -18,6 +18,7 @@ function mostrarMenu() {
   console.log('4. Dividir');
   console.log('5. Potencia');
   console.log('6. Raíz Cuadrada');
+  console.log('7. Resto');
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -64,7 +65,8 @@ function getSimboloOperacion(nombre) {
     'resta': '-',
     'multiplicación': '×',
     'división': '÷',
-    'potencia': '^'
+    'potencia': '^',
+    'resto': '%'
   };
   return simbolos[nombre] || '';
 }
@@ -115,6 +117,12 @@ async function ejecutarOpcion(opcion) {
       await operacionUnNumero(
         (num) => calc.raizCuadrada(num),
         'raíz cuadrada'
+      );
+      break;
+    case '7': 
+      await operacionDosNumeros(
+        (a, b) => calc.calcularResto(a, b),
+        'resto'
       );
       break;
     
