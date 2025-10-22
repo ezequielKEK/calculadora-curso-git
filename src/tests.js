@@ -39,6 +39,16 @@ function expect(valor) {
       if (valor !== undefined) {
         throw new Error(`Esperado undefined, pero recibió ${valor}`);
       }
+    },
+    toThrow(mensajeError) {
+      try {
+        valor(); // `valor` es una función que se espera que lance un error
+        throw new Error('Se esperaba que la función lanzara un error, pero no lo hizo.');
+      } catch (error) {
+        if (error.message !== mensajeError) {
+          throw new Error(`Se esperaba el error "${mensajeError}", pero se recibió "${error.message}"`);
+        }
+      }
     }
   };
 }
@@ -166,6 +176,30 @@ test('raíz cuadrada de número decimal', () => {
 
 test('raíz cuadrada de número negativo debe retornar NaN', () => {
   expect(calc.raizCuadrada(-4)).toBeNaN();
+});
+
+// Tests de Resto 
+console.log('\nTests de resto:');
+test('resto de dos números positivos', () => {
+  expect(calc.calcularResto(10, 3)).toBe(1);
+});
+test('resto con divisor cero debe lanzar un error', () => {
+  expect(() => calc.calcularResto(5, 0)).toThrow("Error: El divisor (b) no puede ser 0");
+});
+
+// Tests de Porcentaje
+console.log('\nTests de porcentaje:');
+test('porcentaje de un número sobre otro', () => {
+  expect(calc.calcularPorcentaje(50, 100)).toBe(50);
+});
+test('porcentaje mayor al 100%', () => {
+  expect(calc.calcularPorcentaje(150, 100)).toBe(150);
+});
+test('porcentaje con resultado decimal', () => {
+  expect(calc.calcularPorcentaje(1, 3)).toBeCloseTo(33.33, 2);
+});
+test('calcular porcentaje sobre cero debe lanzar un error', () => {
+  expect(() => calc.calcularPorcentaje(50, 0)).toThrow("Error: No se puede calcular el porcentaje sobre cero (b no puede ser 0)");
 });
 
 // Resumen

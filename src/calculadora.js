@@ -29,6 +29,13 @@ class Calculadora {
     }
     return a % b;
   }
+
+  calcularPorcentaje(a, b) {
+    if (b === 0) {
+      throw new Error("Error: No se puede calcular el porcentaje sobre cero (b no puede ser 0)");
+    }
+    return (a / b) * 100;
+  }
 }
 
 // Exportar para usar en tests
@@ -52,3 +59,4 @@ console.log('- calc.dividir(a, b)');
 console.log('- calc.potencia(base, exponente)');
 console.log('- calc.raizCuadrada(numero)');
 console.log('- calc.Resto(a, b)');
+console.log('- calc.calcularPorcentaje(a, b)');
