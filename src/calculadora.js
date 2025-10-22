@@ -29,6 +29,20 @@ class Calculadora {
     }
     return a % b;
   }
+
+  logaritmoNatural(numero){
+    if (numero <= 0){
+      throw new Error ("Error: El logaritmo natural solo acepta numeros positivos.")
+    }
+    return Math.log(numero);
+  }
+
+logaritmoBase10(numero){
+  if (numero <= 0) {
+    throw new Error("Error: El logaritmo base 10 solo acepta numeros positivos.")
+  }
+  return Math.log10(numero);
+}
 }
 
 // Exportar para usar en tests
@@ -51,4 +65,4 @@ console.log('- calc.multiplicar(a, b)');
 console.log('- calc.dividir(a, b)');
 console.log('- calc.potencia(base, exponente)');
 console.log('- calc.raizCuadrada(numero)');
-console.log('- calc.Resto(a, b)');
+console.log('- calc.calcularResto(a, b)');
