@@ -22,6 +22,7 @@ function mostrarMenu() {
   console.log('8. Porcentaje (a de b)');
   console.log('9. Promedio de un array');
   console.log('10. Factorial de un número');
+  console.log('11. Historial');
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -170,6 +171,10 @@ async function ejecutarOpcion(opcion) {
 
         console.log(`\n✓ Resultado: !${numeroFactorial} = ${resultadoFacorial}`);
 
+      break
+
+      case '11':
+        console.log(calc.historial());
       break
 
     case '0':

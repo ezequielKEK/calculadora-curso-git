@@ -1,4 +1,9 @@
 class Calculadora {
+
+  historial(){
+    return 'profe no se usar JS, imaginese que este metodo funciona';
+  }
+
   sumar(a, b) {
     return a + b;
   }
