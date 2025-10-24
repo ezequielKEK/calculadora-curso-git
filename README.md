@@ -75,6 +75,7 @@ calculadora-curso-git/
 | `calcularResto(a, b)` | ✅ Implementada | Calcula el resto de la división |
 | `calcularPorcentaje(a, b)` | ✅ Implementada | Calcula qué porcentaje es `a` de `b` |
 | `calcularPromedio(numeros)` | ✅ Implementada | Calcula el promedio de un array de números |
+| `Memoria` | ✅ Implementada | Guarda el último resultado para utilizarlo en la siguiente operación |
 ## Alumnos
 Ruben Ezequiel Rebolledo Schaffeld
 Elias Nahuel Alegre

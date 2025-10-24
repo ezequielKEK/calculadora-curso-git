@@ -5,6 +5,14 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [0.6.0] - 2025-10-24 
+
+### Añadido
+- **Funcionalidad de Memoria:** Permite guardar el resultado de la última operación exitosa.
+- La memoria puede ser usada como entrada en cualquier prompt numérico presionando "m".
+- Implementados métodos `getMemoria()`, `setMemoria()`, y `limpiarMemoria()` en la clase `Calculadora`.
+- Tests unitarios para la funcionalidad de memoria.
+
 ## [0.5.0] - 2025-10-23
 
 ### Añadido

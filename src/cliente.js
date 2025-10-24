@@ -28,8 +28,14 @@ function mostrarMenu() {
 }
 
 function pedirNumero(mensaje) {
+  const valorMemoria= calc.getMemoria();
+  const mensajeConMemoria= `${mensaje} (Presione "m" para usar ${valorMemoria}): `;
   return new Promise((resolve) => {
-    rl.question(mensaje, (respuesta) => {
+    rl.question(mensajeConMemoria, (respuesta) => {
+      if (respuesta.trim().toLowerCase() === 'm') {
+        console.log(`(Usando Memoria: ${valorMemoria})`);
+        resolve(valorMemoria); // Usa el valor de la memoria
+      }
       const numero = parseFloat(respuesta);
       resolve(numero);
     });
@@ -46,6 +52,7 @@ async function operacionDosNumeros(operacion, nombreOperacion) {
     if (resultado === undefined) {
       console.log(`\n⚠️  La función ${nombreOperacion} aún no está implementada`);
     } else {
+      calc.setMemoria(resultado);
       console.log(`\n✓ Resultado: ${getResultadoFormateado(nombreOperacion, num1, num2, resultado)}`);
     }
   } catch (error) {
@@ -63,6 +70,7 @@ async function operacionUnNumero(operacion, nombreOperacion) {
   } else if (isNaN(resultado)) {
     console.log(`\n⚠️  Error: Operación inválida (resultado: NaN)`);
   } else {
+    calc.setMemoria(resultado);
     console.log(`\n✓ Resultado: √${num} = ${resultado}`);
   }
 }
@@ -126,6 +134,7 @@ async function ejecutarOpcion(opcion) {
       if (resultadoPot === undefined) {
         console.log('\n⚠️  La función potencia aún no está implementada');
       } else {
+        calc.setMemoria(resultadoPot);
         console.log(`\n✓ Resultado: ${base}^${exponente} = ${resultadoPot}`);
       }
       break;
@@ -159,6 +168,7 @@ async function ejecutarOpcion(opcion) {
 
       try {
         const resultado= calc.calcularPromedio(numeros);
+        calc.setMemoria(resultado);
         console.log(`\n✓ Resultado: Promedio = ${resultado}`);
       }catch(error){
         console.log(`\n⚠️  ${error.message}`);
