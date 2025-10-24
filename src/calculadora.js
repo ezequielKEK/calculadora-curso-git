@@ -1,7 +1,7 @@
 class Calculadora {
 
   historial(){
-    return 'Profe no se usar JS, imagine que está la función agregada';
+    return 'profe no se usar JS, imaginese que este metodo funciona';
   }
 
   sumar(a, b) {
