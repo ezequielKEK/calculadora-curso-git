@@ -19,8 +19,9 @@ function mostrarMenu() {
   console.log('5. Potencia');
   console.log('6. Raíz Cuadrada');
   console.log('7. Resto');
+  console.log('8. Porcentaje (a de b)');
   console.log('11. Logaritmo Natural');
-  console.log('12. Logaritmo Base 10')
+  console.log('12. Logaritmo Base 10');
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -38,12 +39,16 @@ async function operacionDosNumeros(operacion, nombreOperacion) {
   const num1 = await pedirNumero('Ingrese el primer número: ');
   const num2 = await pedirNumero('Ingrese el segundo número: ');
   
-  const resultado = operacion(num1, num2);
-  
-  if (resultado === undefined) {
-    console.log(`\n⚠️  La función ${nombreOperacion} aún no está implementada`);
-  } else {
-    console.log(`\n✓ Resultado: ${num1} ${getSimboloOperacion(nombreOperacion)} ${num2} = ${resultado}`);
+  try {
+    const resultado = operacion(num1, num2);
+    
+    if (resultado === undefined) {
+      console.log(`\n⚠️  La función ${nombreOperacion} aún no está implementada`);
+    } else {
+      console.log(`\n✓ Resultado: ${getResultadoFormateado(nombreOperacion, num1, num2, resultado)}`);
+    }
+  } catch (error) {
+    console.log(`\n⚠️  Error: ${error.message}`);
   }
 }
 
@@ -68,9 +73,18 @@ function getSimboloOperacion(nombre) {
     'multiplicación': '×',
     'división': '÷',
     'potencia': '^',
-    'resto': '%'
+    'resto': '%',
+    'porcentaje': '' // El formato es especial
   };
   return simbolos[nombre] || '';
+}
+
+function getResultadoFormateado(nombre, a, b, res) {
+  if (nombre === 'porcentaje') {
+    return `${a} es el ${res.toFixed(2)}% de ${b}`;
+  }
+  const simbolo = getSimboloOperacion(nombre);
+  return `${a} ${simbolo} ${b} = ${res}`;
 }
 
 async function ejecutarOpcion(opcion) {
@@ -129,12 +143,19 @@ async function ejecutarOpcion(opcion) {
       );
       break;
 
+    case '8':
+      await operacionDosNumeros(
+        (a, b) => calc.calcularPorcentaje(a, b),
+        'porcentaje'
+      );
+      break;
+
     case '11': 
       await operacionUnNumero(
         (num) => calc.logaritmoNatural(num),
         'logaritmo natural'
       );
-      break;  
+      break;        
     
     case '12':
       await operacionUnNumero(

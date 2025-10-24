@@ -72,6 +72,8 @@ calculadora-curso-git/
 | `dividir(a, b)` | ✅ Implementada | Divide dos números |
 | `potencia(base, exp)` | ✅ Implementada | Eleva un número a una potencia |
 | `raizCuadrada(num)` | ✅ Implementada | Calcula la raíz cuadrada |
+| `calcularResto(a, b)` | ✅ Implementada | Calcula el resto de la división |
+| `calcularPorcentaje(a, b)` | ✅ Implementada | Calcula qué porcentaje es `a` de `b` |
 
 ## Alumnos
 Ruben Ezequiel Rebolledo Schaffeld
