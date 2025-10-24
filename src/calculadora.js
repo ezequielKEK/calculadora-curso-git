@@ -45,6 +45,25 @@ class Calculadora {
     const suma = numeros.reduce((acc, num) => acc + Number(num), 0);
     return suma / numeros.length;
   }
+
+calcularFactorial(a){
+
+  if ( a < 0 ){
+    return undefined;
+  }
+
+  if (a === 0 || a === 1){
+    return 1;
+  }
+
+  if (a === 2){
+    return a;
+  }
+
+  return a * this.calcularFactorial(a - 1);
+
+}
+
 }
 
 // Exportar para usar en tests

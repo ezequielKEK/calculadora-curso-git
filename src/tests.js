@@ -216,6 +216,28 @@ test('calcular promedio de array de negativos', () => {
 test('calcular promedio de array vacío debe lanzar error', () => {
     expect(() => calc.calcularPromedio([])).toThrow("Error: Debe ingresar un array de números no vacío.");
 });
+
+//Test de factoial
+
+console.log('\nTests de factorial:');
+test('calcular factorial de 0', () => {
+    expect(calc.calcularFactorial(0)).toBe(1);
+});
+test('calcular factorial de 1', () => {
+    expect(calc.calcularFactorial(1)).toBe(1);
+});
+test('calcular factorial de 2', () => {
+    expect(calc.calcularFactorial(2)).toBe(2);
+});
+test('calcular factorial de 5', () => {
+    expect(calc.calcularFactorial(5)).toBe(120);
+});
+test('calcular factorial de un negativo', () => {
+    expect(calc.calcularFactorial(-1)).toBeUndefined();
+});
+
+
+
 // Resumen
 console.log('\n=== Resumen ===');
 console.log(`Tests pasados: ${testsPasados}`);

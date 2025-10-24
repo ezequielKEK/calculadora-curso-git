@@ -21,6 +21,7 @@ function mostrarMenu() {
   console.log('7. Resto');
   console.log('8. Porcentaje (a de b)');
   console.log('9. Promedio de un array');
+  console.log('10. Factorial de un número');
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -162,6 +163,15 @@ async function ejecutarOpcion(opcion) {
         console.log(`\n⚠️  ${error.message}`);
       }
       break;
+
+      case '10':
+        const numeroFactorial = await pedirNumero('Ingrese un número para conocer su factorial: ');
+        const resultadoFacorial = calc.calcularFactorial(numeroFactorial);
+
+        console.log(`\n✓ Resultado: !${numeroFactorial} = ${resultadoFacorial}`);
+
+      break
+
     case '0':
       console.log('\n¡Hasta luego! 👋');
       rl.close();
