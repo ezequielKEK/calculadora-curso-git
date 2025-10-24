@@ -172,11 +172,6 @@ async function ejecutarOpcion(opcion) {
 
       break
 
-      case '11':
-        console.log(calc.historial());
-
-      break
-
     case '0':
       console.log('\n¡Hasta luego! 👋');
       rl.close();
