@@ -36,6 +36,15 @@ class Calculadora {
     }
     return (a / b) * 100;
   }
+
+  calcularPromedio(numeros){
+    if (!Array.isArray(numeros) || numeros.length === 0) {
+      throw new Error("Error: Se debe proporcionar un array no vacío de números");
+    }
+
+    const suma = numeros.reduce((acc, num) => acc + Number(num), 0);
+    return suma / numeros.length;
+  }
 }
 
 // Exportar para usar en tests
@@ -60,3 +69,4 @@ console.log('- calc.potencia(base, exponente)');
 console.log('- calc.raizCuadrada(numero)');
 console.log('- calc.Resto(a, b)');
 console.log('- calc.calcularPorcentaje(a, b)');
+console.log('- calc.calcularPromedio(array)'); 

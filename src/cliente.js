@@ -20,6 +20,7 @@ function mostrarMenu() {
   console.log('6. Raíz Cuadrada');
   console.log('7. Resto');
   console.log('8. Porcentaje (a de b)');
+  console.log('9. Promedio de un array');
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -145,7 +146,22 @@ async function ejecutarOpcion(opcion) {
         'porcentaje'
       );
       break;
-    
+    case '9':
+      const entrada = await new Promise((resolve) => {
+        rl.question('Ingrese los números separados por comas: ', resolve);
+      });
+      const numeros= entrada
+        .split(',')
+        .map(num => parseFloat(num.trim()))
+        .filter(num => !isNaN(num));
+
+      try {
+        const resultado= calc.calcularPromedio(numeros);
+        console.log(`\n✓ Resultado: Promedio = ${resultado}`);
+      }catch(error){
+        console.log(`\n⚠️  ${error.message}`);
+      }
+      break;
     case '0':
       console.log('\n¡Hasta luego! 👋');
       rl.close();

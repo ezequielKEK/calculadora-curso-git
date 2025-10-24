@@ -201,7 +201,21 @@ test('porcentaje con resultado decimal', () => {
 test('calcular porcentaje sobre cero debe lanzar un error', () => {
   expect(() => calc.calcularPorcentaje(50, 0)).toThrow("Error: No se puede calcular el porcentaje sobre cero (b no puede ser 0)");
 });
-
+// Tests de Promedio
+console.log('\nTests de promedio:');
+console.log('\nTests de promedio:');
+test('calcular promedio de array de positivos', () => {
+    expect(calc.calcularPromedio([10, 20, 30])).toBe(20);
+});
+test('calcular promedio de array con cero', () => {
+    expect(calc.calcularPromedio([5, 0, 10])).toBe(5);
+});
+test('calcular promedio de array de negativos', () => {
+    expect(calc.calcularPromedio([-10, 0, 10, 20])).toBe(5);
+});
+test('calcular promedio de array vacío debe lanzar error', () => {
+    expect(() => calc.calcularPromedio([])).toThrow("Error: Debe ingresar un array de números no vacío.");
+});
 // Resumen
 console.log('\n=== Resumen ===');
 console.log(`Tests pasados: ${testsPasados}`);

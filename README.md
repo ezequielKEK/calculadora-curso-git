@@ -74,7 +74,7 @@ calculadora-curso-git/
 | `raizCuadrada(num)` | ✅ Implementada | Calcula la raíz cuadrada |
 | `calcularResto(a, b)` | ✅ Implementada | Calcula el resto de la división |
 | `calcularPorcentaje(a, b)` | ✅ Implementada | Calcula qué porcentaje es `a` de `b` |
-
+| `calcularPromedio(numeros)` | ✅ Implementada | Calcula el promedio de un array de números |
 ## Alumnos
 Ruben Ezequiel Rebolledo Schaffeld
 Elias Nahuel Alegre
