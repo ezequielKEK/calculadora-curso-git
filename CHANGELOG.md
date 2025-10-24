@@ -5,6 +5,27 @@ Todos los cambios notables en este proyecto serán documentados en este archivo.
 El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1.0.0/),
 y este proyecto adhiere a [Semantic Versioning](https://semver.org/lang/es/).
 
+## [0.5.0] - 2025-10-23
+
+### Añadido
+- Función `calcularPromedio(numeros)` para obtener el promedio de una lista de números.
+- Opción para "Promedio" en el menú interactivo.
+- Tests unitarios para la función `calcularPromedio`.
+
+## [0.4.0] - 2025-10-22
+
+### Añadido
+- Función `calcularPorcentaje(a, b)` para obtener el porcentaje de un número sobre otro.
+- Opción para "Porcentaje" en el menú interactivo.
+- Tests unitarios para la función `calcularPorcentaje`, incluyendo manejo de división por cero.
+
+## [0.3.0] - 2025-10-21
+
+### Añadido
+- Función `calcularResto(a, b)` para obtener el módulo de una división.
+- Opción para "Resto" en el menú interactivo.
+- Tests unitarios para la función `calcularResto`, incluyendo manejo de errores.
+
 ## [0.2.0] - 2025-10-04
 
 ### Añadido

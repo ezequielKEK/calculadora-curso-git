@@ -16,11 +16,34 @@ class Calculadora {
   }
 
   potencia(base, exponente) {
-    // TODO: Implementar potencia
+    return Math.pow(base, exponente);
   }
 
   raizCuadrada(numero) {
-    // TODO: Implementar raíz cuadrada
+    return Math.sqrt(numero);
+  }
+
+  calcularResto (a, b){
+    if (b === 0) {
+      throw new Error("Error: El divisor (b) no puede ser 0");
+    }
+    return a % b;
+  }
+
+  calcularPorcentaje(a, b) {
+    if (b === 0) {
+      throw new Error("Error: No se puede calcular el porcentaje sobre cero (b no puede ser 0)");
+    }
+    return (a / b) * 100;
+  }
+
+  calcularPromedio(numeros){
+    if (!Array.isArray(numeros) || numeros.length === 0) {
+      throw new Error("Error: Se debe proporcionar un array no vacío de números");
+    }
+
+    const suma = numeros.reduce((acc, num) => acc + Number(num), 0);
+    return suma / numeros.length;
   }
 }
 
@@ -45,3 +68,6 @@ console.log('- calc.multiplicar(a, b)');
 console.log('- calc.dividir(a, b)');
 console.log('- calc.potencia(base, exponente)');
 console.log('- calc.raizCuadrada(numero)');
+console.log('- calc.Resto(a, b)');
+console.log('- calc.calcularPorcentaje(a, b)');
+console.log('- calc.calcularPromedio(array)'); 

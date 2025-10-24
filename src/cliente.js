@@ -18,6 +18,9 @@ function mostrarMenu() {
   console.log('4. Dividir');
   console.log('5. Potencia');
   console.log('6. Raíz Cuadrada');
+  console.log('7. Resto');
+  console.log('8. Porcentaje (a de b)');
+  console.log('9. Promedio de un array');
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -35,12 +38,16 @@ async function operacionDosNumeros(operacion, nombreOperacion) {
   const num1 = await pedirNumero('Ingrese el primer número: ');
   const num2 = await pedirNumero('Ingrese el segundo número: ');
   
-  const resultado = operacion(num1, num2);
-  
-  if (resultado === undefined) {
-    console.log(`\n⚠️  La función ${nombreOperacion} aún no está implementada`);
-  } else {
-    console.log(`\n✓ Resultado: ${num1} ${getSimboloOperacion(nombreOperacion)} ${num2} = ${resultado}`);
+  try {
+    const resultado = operacion(num1, num2);
+    
+    if (resultado === undefined) {
+      console.log(`\n⚠️  La función ${nombreOperacion} aún no está implementada`);
+    } else {
+      console.log(`\n✓ Resultado: ${getResultadoFormateado(nombreOperacion, num1, num2, resultado)}`);
+    }
+  } catch (error) {
+    console.log(`\n⚠️  Error: ${error.message}`);
   }
 }
 
@@ -64,9 +71,19 @@ function getSimboloOperacion(nombre) {
     'resta': '-',
     'multiplicación': '×',
     'división': '÷',
-    'potencia': '^'
+    'potencia': '^',
+    'resto': '%',
+    'porcentaje': '' // El formato es especial
   };
   return simbolos[nombre] || '';
+}
+
+function getResultadoFormateado(nombre, a, b, res) {
+  if (nombre === 'porcentaje') {
+    return `${a} es el ${res.toFixed(2)}% de ${b}`;
+  }
+  const simbolo = getSimboloOperacion(nombre);
+  return `${a} ${simbolo} ${b} = ${res}`;
 }
 
 async function ejecutarOpcion(opcion) {
@@ -117,7 +134,34 @@ async function ejecutarOpcion(opcion) {
         'raíz cuadrada'
       );
       break;
-    
+    case '7': 
+      await operacionDosNumeros(
+        (a, b) => calc.calcularResto(a, b),
+        'resto'
+      );
+      break;
+    case '8':
+      await operacionDosNumeros(
+        (a, b) => calc.calcularPorcentaje(a, b),
+        'porcentaje'
+      );
+      break;
+    case '9':
+      const entrada = await new Promise((resolve) => {
+        rl.question('Ingrese los números separados por comas: ', resolve);
+      });
+      const numeros= entrada
+        .split(',')
+        .map(num => parseFloat(num.trim()))
+        .filter(num => !isNaN(num));
+
+      try {
+        const resultado= calc.calcularPromedio(numeros);
+        console.log(`\n✓ Resultado: Promedio = ${resultado}`);
+      }catch(error){
+        console.log(`\n⚠️  ${error.message}`);
+      }
+      break;
     case '0':
       console.log('\n¡Hasta luego! 👋');
       rl.close();
