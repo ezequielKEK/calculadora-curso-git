@@ -1,4 +1,9 @@
 class Calculadora {
+
+  historial(){
+    return 'profe no se usar JS, imaginese que este metodo funciona';
+  }
+
   sumar(a, b) {
     return a + b;
   }
@@ -50,6 +55,34 @@ logaritmoBase10(numero){
     }
     return (a / b) * 100;
   }
+
+  calcularPromedio(numeros){
+    if (!Array.isArray(numeros) || numeros.length === 0) {
+      throw new Error("Error: Se debe proporcionar un array no vacío de números");
+    }
+
+    const suma = numeros.reduce((acc, num) => acc + Number(num), 0);
+    return suma / numeros.length;
+  }
+
+calcularFactorial(a){
+
+  if ( a < 0 ){
+    return undefined;
+  }
+
+  if (a === 0 || a === 1){
+    return 1;
+  }
+
+  if (a === 2){
+    return a;
+  }
+
+  return a * this.calcularFactorial(a - 1);
+
+}
+
 }
 
 // Exportar para usar en tests
@@ -65,6 +98,7 @@ console.log('Ejemplo de uso:');
 console.log('calc.sumar(5, 3):', calc.sumar(5, 3));
 console.log('calc.restar(10, 6):', calc.restar(10, 6));
 console.log('calc.multiplicar(2, 3):', calc.multiplicar(2, 3));
+console.log('calc.dividir(9, 3):', calc.dividir(9, 3));
 console.log('\nFunciones disponibles:');
 console.log('- calc.sumar(a, b)');
 console.log('- calc.restar(a, b)');
@@ -75,3 +109,4 @@ console.log('- calc.raizCuadrada(numero)');
 console.log('- calc.calcularResto(a, b)');
 console.log('- calc.Resto(a, b)');
 console.log('- calc.calcularPorcentaje(a, b)');
+console.log('- calc.calcularPromedio(array)'); 

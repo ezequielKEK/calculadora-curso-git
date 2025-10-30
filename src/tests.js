@@ -201,6 +201,42 @@ test('porcentaje con resultado decimal', () => {
 test('calcular porcentaje sobre cero debe lanzar un error', () => {
   expect(() => calc.calcularPorcentaje(50, 0)).toThrow("Error: No se puede calcular el porcentaje sobre cero (b no puede ser 0)");
 });
+// Tests de Promedio
+console.log('\nTests de promedio:');
+console.log('\nTests de promedio:');
+test('calcular promedio de array de positivos', () => {
+    expect(calc.calcularPromedio([10, 20, 30])).toBe(20);
+});
+test('calcular promedio de array con cero', () => {
+    expect(calc.calcularPromedio([5, 0, 10])).toBe(5);
+});
+test('calcular promedio de array de negativos', () => {
+    expect(calc.calcularPromedio([-10, 0, 10, 20])).toBe(5);
+});
+test('calcular promedio de array vacío debe lanzar error', () => {
+    expect(() => calc.calcularPromedio([])).toThrow("Error: Debe ingresar un array de números no vacío.");
+});
+
+//Test de factoial
+
+console.log('\nTests de factorial:');
+test('calcular factorial de 0', () => {
+    expect(calc.calcularFactorial(0)).toBe(1);
+});
+test('calcular factorial de 1', () => {
+    expect(calc.calcularFactorial(1)).toBe(1);
+});
+test('calcular factorial de 2', () => {
+    expect(calc.calcularFactorial(2)).toBe(2);
+});
+test('calcular factorial de 5', () => {
+    expect(calc.calcularFactorial(5)).toBe(120);
+});
+test('calcular factorial de un negativo', () => {
+    expect(calc.calcularFactorial(-1)).toBeUndefined();
+});
+
+
 
 // Resumen
 console.log('\n=== Resumen ===');

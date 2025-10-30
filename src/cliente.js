@@ -20,8 +20,11 @@ function mostrarMenu() {
   console.log('6. Raíz Cuadrada');
   console.log('7. Resto');
   console.log('8. Porcentaje (a de b)');
-  console.log('11. Logaritmo Natural');
-  console.log('12. Logaritmo Base 10');
+  console.log('9. Promedio de un array');
+  console.log('10. Factorial de un número');
+  console.log('11. Historial');
+  console.log('12. Logaritmo Natural');
+  console.log('13. Logaritmo Base 10');
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -149,21 +152,50 @@ async function ejecutarOpcion(opcion) {
         'porcentaje'
       );
       break;
+      
+    case '9':
+      const entrada = await new Promise((resolve) => {
+        rl.question('Ingrese los números separados por comas: ', resolve);
+      });
+      const numeros= entrada
+        .split(',')
+        .map(num => parseFloat(num.trim()))
+        .filter(num => !isNaN(num));
 
-    case '11': 
-      await operacionUnNumero(
-        (num) => calc.logaritmoNatural(num),
-        'logaritmo natural'
+      try {
+        const resultado= calc.calcularPromedio(numeros);
+        console.log(`\n✓ Resultado: Promedio = ${resultado}`);
+      }catch(error){
+        console.log(`\n⚠️  ${error.message}`);
+      }
+      break;
+
+      case '10':
+        const numeroFactorial = await pedirNumero('Ingrese un número para conocer su factorial: ');
+        const resultadoFacorial = calc.calcularFactorial(numeroFactorial);
+
+        console.log(`\n✓ Resultado: !${numeroFactorial} = ${resultadoFacorial}`);
+
+      break
+
+      case '11':
+        console.log(calc.historial());
+      break;
+      
+      case '12': 
+        await operacionUnNumero(
+          (num) => calc.logaritmoNatural(num),
+          'logaritmo natural'
       );
       break;        
     
-    case '12':
-      await operacionUnNumero(
-        (num)=> calc.logaritmoBase10(num),
-        'logaritmo base 10'
+      case '13':
+        await operacionUnNumero(
+          (num)=> calc.logaritmoBase10(num),
+          'logaritmo base 10'
       );
       break;
-
+      
     case '0':
       console.log('\n¡Hasta luego! 👋');
       rl.close();
