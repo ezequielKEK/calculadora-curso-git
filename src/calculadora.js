@@ -1,97 +1,105 @@
-class Calculadora {
+    class Calculadora {
+      constructor(){
+        this._memoria=0;
+      }
+      getMemoria(){
+        return this._memoria;
+      }
+      setMemoria(resultado){
+        this._memoria= resultado;
+      }
+      limpiarMemoria(){
+        this._memoria=0;
+      }
+      historial(){
+        return 'profe no se usar JS, imaginese que este metodo funciona';
+      }
+      sumar(a, b) {
+        return a + b;
+      }
 
-  historial(){
-    return 'profe no se usar JS, imaginese que este metodo funciona';
-  }
+      restar(a, b) {
+        return a - b;
+      }
 
-  sumar(a, b) {
-    return a + b;
-  }
+      multiplicar(a, b) {
+        return a * b;
+      }
 
-  restar(a, b) {
-    return a - b;
-  }
+      dividir(a, b) {
+        return a / b;
+      }
 
-  multiplicar(a, b) {
-    return a * b;
-  }
+      potencia(base, exponente) {
+        return Math.pow(base, exponente);
+      }
 
-  dividir(a, b) {
-    return a / b;
-  }
+      raizCuadrada(numero) {
+        return Math.sqrt(numero);
+      }
 
-  potencia(base, exponente) {
-    return Math.pow(base, exponente);
-  }
+      calcularResto (a, b){
+        if (b === 0) {
+          throw new Error("Error: El divisor (b) no puede ser 0");
+        }
+        return a % b;
+      }
 
-  raizCuadrada(numero) {
-    return Math.sqrt(numero);
-  }
+      calcularPorcentaje(a, b) {
+        if (b === 0) {
+          throw new Error("Error: No se puede calcular el porcentaje sobre cero (b no puede ser 0)");
+        }
+        return (a / b) * 100;
+      }
 
-  calcularResto (a, b){
-    if (b === 0) {
-      throw new Error("Error: El divisor (b) no puede ser 0");
-    }
-    return a % b;
-  }
+      calcularPromedio(numeros){
+        if (!Array.isArray(numeros) || numeros.length === 0) {
+          throw new Error("Error: Se debe proporcionar un array no vacío de números");
+        }
+    
+        const suma = numeros.reduce((acc, num) => acc + Number(num), 0);
+        return suma / numeros.length;
+      }
+      calcularFactorial(a){
+        if ( a < 0 ){
+          return undefined;
+        }
 
-  logaritmoNatural(numero){
-    if (numero <= 0){
-      throw new Error ("Error: El logaritmo natural solo acepta numeros positivos.")
-    }
-    return Math.log(numero);
-  }
+        if (a === 0 || a === 1){
+          return 1;
+        }
+        if (a === 2){
+          return a;
+        }
 
-logaritmoBase10(numero){
-  if (numero <= 0) {
-    throw new Error("Error: El logaritmo base 10 solo acepta numeros positivos.")
-  }
-  return Math.log10(numero);
-}
+        return a * this.calcularFactorial(a - 1);
 
-  calcularPorcentaje(a, b) {
-    if (b === 0) {
-      throw new Error("Error: No se puede calcular el porcentaje sobre cero (b no puede ser 0)");
-    }
-    return (a / b) * 100;
-  }
+      }
+      logaritmoNatural(numero){
+        if (numero <= 0){
+          throw new Error ("Error: El logaritmo natural solo acepta numeros positivos.")
+        }
+        return Math.log(numero);
+      }
 
-  calcularPromedio(numeros){
-    if (!Array.isArray(numeros) || numeros.length === 0) {
-      throw new Error("Error: Se debe proporcionar un array no vacío de números");
-    }
+      logaritmoBase10(numero){
+        if (numero <= 0) {
+          throw new Error("Error: El logaritmo base 10 solo acepta numeros positivos.")
+        }
+        return Math.log10(numero);
+      }
 
-    const suma = numeros.reduce((acc, num) => acc + Number(num), 0);
-    return suma / numeros.length;
-  }
 
-calcularFactorial(a){
+      }
+      // Exportar para usar en tests
+      if (typeof module !== 'undefined' && module.exports) {
+        module.exports = Calculadora;
+      }
 
-  if ( a < 0 ){
-    return undefined;
-  }
+    // Para usar en consola de Node.js
+    const calc = new Calculadora();
 
-  if (a === 0 || a === 1){
-    return 1;
-  }
-
-  if (a === 2){
-    return a;
-  }
-
-  return a * this.calcularFactorial(a - 1);
-
-}
-
-}
-
-// Exportar para usar en tests
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = Calculadora;
-}
-
-// Para usar en consola de Node.js
-const calc = new Calculadora();
+  
 
 console.log('=== Calculadora Simple ===');
 console.log('Ejemplo de uso:');
