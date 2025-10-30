@@ -35,6 +35,20 @@ class Calculadora {
     return a % b;
   }
 
+  logaritmoNatural(numero){
+    if (numero <= 0){
+      throw new Error ("Error: El logaritmo natural solo acepta numeros positivos.")
+    }
+    return Math.log(numero);
+  }
+
+logaritmoBase10(numero){
+  if (numero <= 0) {
+    throw new Error("Error: El logaritmo base 10 solo acepta numeros positivos.")
+  }
+  return Math.log10(numero);
+}
+
   calcularPorcentaje(a, b) {
     if (b === 0) {
       throw new Error("Error: No se puede calcular el porcentaje sobre cero (b no puede ser 0)");
@@ -92,6 +106,7 @@ console.log('- calc.multiplicar(a, b)');
 console.log('- calc.dividir(a, b)');
 console.log('- calc.potencia(base, exponente)');
 console.log('- calc.raizCuadrada(numero)');
+console.log('- calc.calcularResto(a, b)');
 console.log('- calc.Resto(a, b)');
 console.log('- calc.calcularPorcentaje(a, b)');
 console.log('- calc.calcularPromedio(array)'); 

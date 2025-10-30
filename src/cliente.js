@@ -23,6 +23,8 @@ function mostrarMenu() {
   console.log('9. Promedio de un array');
   console.log('10. Factorial de un número');
   console.log('11. Historial');
+  console.log('12. Logaritmo Natural');
+  console.log('13. Logaritmo Base 10');
   console.log('0. Salir');
   console.log('=================================');
 }
@@ -136,18 +138,21 @@ async function ejecutarOpcion(opcion) {
         'raíz cuadrada'
       );
       break;
+
     case '7': 
       await operacionDosNumeros(
         (a, b) => calc.calcularResto(a, b),
         'resto'
       );
       break;
+
     case '8':
       await operacionDosNumeros(
         (a, b) => calc.calcularPorcentaje(a, b),
         'porcentaje'
       );
       break;
+      
     case '9':
       const entrada = await new Promise((resolve) => {
         rl.question('Ingrese los números separados por comas: ', resolve);
@@ -175,8 +180,22 @@ async function ejecutarOpcion(opcion) {
 
       case '11':
         console.log(calc.historial());
-      break
-
+      break;
+      
+      case '12': 
+        await operacionUnNumero(
+          (num) => calc.logaritmoNatural(num),
+          'logaritmo natural'
+      );
+      break;        
+    
+      case '13':
+        await operacionUnNumero(
+          (num)=> calc.logaritmoBase10(num),
+          'logaritmo base 10'
+      );
+      break;
+      
     case '0':
       console.log('\n¡Hasta luego! 👋');
       rl.close();
