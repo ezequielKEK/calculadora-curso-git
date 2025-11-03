@@ -186,7 +186,7 @@ async function ejecutarOpcion(opcion) {
 
         console.log(`\n✓ Resultado: !${numeroFactorial} = ${resultadoFacorial}`);
 
-      break
+      break;
 
       case '11':
         console.log(calc.historial());
